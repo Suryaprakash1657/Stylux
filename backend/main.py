@@ -4,7 +4,9 @@ from pydantic import BaseModel
 import pandas as pd
 import google.generativeai as genai
 from typing import List, Optional
+from dotenv import load_dotenv
 import os
+
 
 class Message(BaseModel):
     type: str
@@ -32,7 +34,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-GEMINI_API_KEY = os.getenv('AIzaSyAlhkGue264_LOKUXakytcA2x5XacpwUuo', '')
+GEMINI_API_KEY = os.getenv('GEMINI-API-KEY', '')
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
 
