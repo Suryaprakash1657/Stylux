@@ -86,3 +86,6 @@ async def test_endpoint():
         "data_loaded": not df.empty,
         "categories": [cat for cat in df['skin_tone'].unique() if pd.notna(cat)]
     }
+
+if __name__ == "__main__":
+    app.run()
